@@ -97,6 +97,9 @@ class TestSphericalModels(unittest.TestCase):
             test_mass(model)
             test_poisson_solution(model)
 
+        # Jaffe's model's mass is divergent, so we only test Poisson's equation.
+        test_poisson_solution(models.Jaffe())
+
         print("\nAll tests in {s} passed.".format(s=self.name()))
 
 
