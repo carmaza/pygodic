@@ -4,10 +4,10 @@
 from context import pygodic
 
 import numpy as np
-import scipy.integrate as integrate
 import unittest
 
 from pygodic import models
+from pygodic.numalg import integrate
 
 from finite_difference import FirstDeriv
 
