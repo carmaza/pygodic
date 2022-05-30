@@ -91,6 +91,7 @@ class TestSphericalModels(unittest.TestCase):
 
         finite_mass_models = [
             models.Exponential(),
+            models.ExponentialLinear(),
             models.Plummer()
         ]
 
