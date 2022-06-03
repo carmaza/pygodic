@@ -1,40 +1,39 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 
-from abc import ABCMeta, abstractmethod, abstractproperty
+import abc
 
 
-class SphericallySymmetric():
+class SphericallySymmetric(metaclass=abc.ABCMeta):
     """
     Base class for self-gravitating spherically symmetric models.
 
     """
-    __metaclass__ = ABCMeta
 
-    @abstractproperty
+    @property
     def name():
-        pass
+        raise NotImplementedError()
 
-    @abstractproperty
+    @property
     def has_analytic_df():
-        pass
+        raise NotImplementedError()
 
-    @abstractmethod
+    @staticmethod
     def mass_density(r):
-        pass
+        raise NotImplementedError()
 
-    @abstractmethod
+    @staticmethod
     def deriv_mass_density(r):
-        pass
+        raise NotImplementedError()
 
-    @abstractmethod
+    @staticmethod
     def relative_potential(r, offset):
-        pass
+        raise NotImplementedError()
 
-    @abstractmethod
+    @staticmethod
     def deriv_relative_potential(r, offset):
-        pass
+        raise NotImplementedError()
 
-    @abstractmethod
+    @staticmethod
     def drho_dpsi(r, offset):
-        pass
+        raise NotImplementedError()
