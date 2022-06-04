@@ -132,3 +132,99 @@ def df_contours(radius,
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))
+
+
+def speed_moment_profile(r, moment, nlabel, model, path=""):
+    """
+    For the given model, plot the n-th speed moment as a function of the
+    radial coordinate.
+
+    Parameters
+    ----------
+
+    `r` : array_like
+    The set of radial coordinates.
+
+    `moment` : array_like
+    The speed moment evaluated at `r`.
+
+    `nlabel` : string
+    The value of $n$ (to be used in the name of the file).
+
+    `model` : object
+    The model in consideration.
+
+    `path` : string (optional, default: the running folder)
+    The path where to save the plot.
+
+    """
+    labels = {
+        "0": "0th moment (density)",
+        "1": "1st moment (mean speed)",
+        "2": "2nd moment (mean speed squared)"
+    }
+
+    label = ""
+    if nlabel in labels.keys():
+        label = labels[nlabel]
+    else:
+        label = "{n}th moment".format(n=nlabel)
+    plt.plot(r, moment, label=label, color="navy")
+
+    if nlabel == "0":
+        plt.plot(r, model.mass_density(r), color="green", label="analytic")
+        plt.yscale("log")
+        plt.gca().set_aspect(0.8)
+
+    plt.xlabel("$r/R$", fontsize=20)
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
+    plt.legend(fontsize=12)
+    plt.grid(color="grey")
+
+    filepath = path + "{n}thSpeedMomentVsR{model}.pdf".format(
+        n=nlabel, model=model.name())
+    plt.savefig(filepath, bbox_inches="tight")
+    plt.clf()
+    print("File {path} saved.".format(path=filepath))
+
+
+def dispersion_profile(r, v_mean, v_sqrd_mean, model, path=""):
+    """
+    For the given model, plot radial profile of the speed dispersion.
+
+    Parameters
+    ----------
+
+    `r` : array_like
+    The set of radial coordinates.
+
+    `v_mean, v_sqrd_mean` : array_like, array_like
+    The mean speed and the mean speed squared evaluated at `r`.
+
+    `model` : object
+    The model in consideration.
+
+    `path` : string (optional, default: the running folder)
+    The path where to save the plot.
+
+    """
+    plt.plot(r, v_sqrd_mean, color="navy", label="$\overline{v^2}$")
+    plt.plot(r, v_mean * v_mean, color="green", label="$\overline{v}^2$")
+    plt.plot(r,
+             v_sqrd_mean - v_mean * v_mean,
+             color="yellowgreen",
+             label=r"$\sigma^2$")
+
+    plt.xlabel("$r/R$", fontsize=20)
+    plt.yscale("log")
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
+    plt.legend(fontsize=20)
+    plt.gca().set_aspect(2.5)
+    plt.grid(color="grey")
+
+    filepath = path + "Dispersion{model}.pdf".format(model=model.name())
+    plt.savefig(filepath, bbox_inches='tight')
+    plt.clf()
+    print("File {path} saved.".format(path=filepath))
