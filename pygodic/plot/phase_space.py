@@ -11,7 +11,7 @@ plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
 
 
-def relative_energy_contours(radius, speed, model, path=""):
+def relative_energy_contours(radius, speed, model, path="", rasterized=True):
     """
     For the given model, plot contours of the relative energy as a function
     of the radial coordinate and the speed.
@@ -28,6 +28,9 @@ def relative_energy_contours(radius, speed, model, path=""):
     `path` : string (optional, default: the running folder)
     The path where to save the plot.
 
+    `rasterized` : bool (optional, default: True)
+    Whether to rasterize the contour plot.
+
     """
     energy = functions_of_phase_space.relative_energy(radius, speed, model)
 
@@ -38,7 +41,11 @@ def relative_energy_contours(radius, speed, model, path=""):
                                alpha=0.9,
                                colors='white',
                                linewidths=2.5)
-    plt.contourf(radius, speed, energy, 15, alpha=0.5)
+    cs = plt.contourf(radius, speed, energy, 100, alpha=0.5)
+
+    if rasterized:
+        for c in cs.collections:
+            c.set_rasterized(True)
 
     cbar = plt.colorbar()
     cbar.ax.tick_params(labelsize=14)
@@ -50,7 +57,7 @@ def relative_energy_contours(radius, speed, model, path=""):
 
     filepath = path + "RelativeEnergyContours{model}.pdf".format(
         model=model.name())
-    plt.savefig(filepath, bbox_inches='tight')
+    plt.savefig(filepath, bbox_inches='tight', dpi=300)
     plt.clf()
     print("File {path} saved.".format(path=filepath))
 
@@ -62,7 +69,8 @@ def df_contours(radius,
                 model,
                 spherical=False,
                 logscale=False,
-                path=""):
+                path="",
+                rasterized=True):
     """
     For the given model, plot contours of the DF as a function of the radial
     coordinate and the speed.
@@ -93,6 +101,9 @@ def df_contours(radius,
     `path` : string (optional, default: the running folder)
     The path where to save the plot.
 
+    `rasterized` : bool (optional, default: True)
+    Whether to rasterize the contour plot.
+
     """
     energy = functions_of_phase_space.relative_energy(radius, speed, model)
 
@@ -100,13 +111,14 @@ def df_contours(radius,
     if spherical:
         df = 4. * np.pi * speed**2. * df
 
+    cs = None
     contours = None
     if logscale:
         # Hack to leave plot empty wherever log10(DF) is not defined.
         df = np.where(df > 0., df, np.nan)
         log_df = np.log10(df)
         contours = plt.contour(radius, speed, log_df, 20)
-        plt.contourf(radius, speed, log_df, 20, alpha=0.3)
+        cs = plt.contourf(radius, speed, log_df, 100, alpha=0.3)
 
     else:
         plt.contour(radius, speed, df, 20)
@@ -118,7 +130,11 @@ def df_contours(radius,
                                df, [1.e-9],
                                alpha=0.9,
                                colors='white')
-        plt.contourf(radius, speed, df, 20, alpha=0.5)
+        cs = plt.contourf(radius, speed, df, 100, alpha=0.5)
+
+    if rasterized:
+        for c in cs.collections:
+            c.set_rasterized(True)
 
     cbar = plt.colorbar()
     cbar.ax.tick_params(labelsize=14)
