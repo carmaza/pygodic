@@ -14,9 +14,11 @@ class Jaffe(SphericallySymmetric):
 
     """
 
+    @property
     def name(cls):
         return "Jaffe"
 
+    @property
     def has_analytic_df(cls):
         return True
 

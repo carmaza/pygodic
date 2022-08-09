@@ -59,7 +59,7 @@ def density_spline(psi,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=20)
 
-    filepath = path + "RhoVsPsi{model}.pdf".format(model=model.name())
+    filepath = path + "RhoVsPsi{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))
@@ -84,7 +84,7 @@ def density_spline(psi,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "dRhodPsi{model}.pdf".format(model=model.name())
+    filepath = path + "dRhodPsi{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))

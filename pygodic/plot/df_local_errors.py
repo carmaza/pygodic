@@ -113,7 +113,7 @@ def df_local_errors(model,
                loc='best',
                ncol=2)
 
-    filepath = path + "ErrorFvsE{model}.pdf".format(model=model.name())
+    filepath = path + "ErrorFvsE{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
 
     # Ignore unnecessary warning originated from known bug:

@@ -13,13 +13,16 @@ class ExponentialLinear(SphericallySymmetric):
 
     """
 
+    @property
     def name(cls):
         return "ExponentialLinear"
 
-    def has_analytic_df(cls):
+    @property
+    def has_analytic_df():
         return False
 
-    def r90(cls):
+    @property
+    def r90():
         return 3.61
 
     def mass_density(self, r):

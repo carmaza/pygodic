@@ -52,7 +52,7 @@ def antideriv_df_from_energy(energy,
              label="interpolation",
              linewidth=2.5)
 
-    if model.has_analytic_df():
+    if model.has_analytic_df:
         plt.plot(energy_dense,
                  model.antideriv_df(energy_dense),
                  '--',
@@ -68,7 +68,7 @@ def antideriv_df_from_energy(energy,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "FvsE{model}.pdf".format(model=model.name())
+    filepath = path + "FvsE{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))
@@ -87,7 +87,7 @@ def antideriv_df_from_energy(energy,
              label="interpolation",
              linewidth=2.5)
 
-    if model.has_analytic_df():
+    if model.has_analytic_df:
         plt.plot(energy_dense,
                  model.df(energy_dense),
                  '--',
@@ -103,7 +103,7 @@ def antideriv_df_from_energy(energy,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "DFvsE{model}.pdf".format(model=model.name())
+    filepath = path + "DFvsE{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))

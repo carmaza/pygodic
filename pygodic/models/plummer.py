@@ -12,9 +12,11 @@ class Plummer(SphericallySymmetric):
 
     """
 
+    @property
     def name(cls):
         return "Plummer"
 
+    @property
     def has_analytic_df(cls):
         return True
 

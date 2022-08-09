@@ -11,29 +11,36 @@ class SphericallySymmetric(metaclass=abc.ABCMeta):
     """
 
     @property
+    @abc.abstractmethod
     def name():
-        raise NotImplementedError()
+        pass
 
     @property
+    @abc.abstractmethod
     def has_analytic_df():
-        raise NotImplementedError()
+        pass
 
     @staticmethod
+    @abc.abstractmethod
     def mass_density(r):
-        raise NotImplementedError()
+        pass
 
     @staticmethod
+    @abc.abstractmethod
     def deriv_mass_density(r):
-        raise NotImplementedError()
+        pass
 
     @staticmethod
+    @abc.abstractmethod
     def relative_potential(r, offset):
-        raise NotImplementedError()
+        pass
 
     @staticmethod
+    @abc.abstractmethod
     def deriv_relative_potential(r, offset):
-        raise NotImplementedError()
+        pass
 
     @staticmethod
+    @abc.abstractmethod
     def drho_dpsi(r, offset):
-        raise NotImplementedError()
+        pass

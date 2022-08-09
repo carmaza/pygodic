@@ -12,9 +12,11 @@ class HenonIsochrone(SphericallySymmetric):
 
     """
 
+    @property
     def name(cls):
         return "HenonIsochrone"
 
+    @property
     def has_analytic_df(cls):
         return True
 

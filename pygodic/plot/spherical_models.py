@@ -43,7 +43,7 @@ def radial_profiles(models, r, normalized=False, path=""):
             profile = radial_profile(r)
             if normalized:
                 profile = profile / radial_profile(0.)
-            plt.plot(r, profile, '-', label=model.name())
+            plt.plot(r, profile, '-', label=model.name)
 
         if xlogscale:
             plt.xscale('log')
@@ -90,7 +90,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
         plt.plot(model.relative_potential(r),
                  model.mass_density(r),
                  '.',
-                 label=model.name())
+                 label=model.name)
 
     if ylogscale:
         plt.yscale("log")

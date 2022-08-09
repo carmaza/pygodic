@@ -56,7 +56,7 @@ def relative_energy_contours(radius, speed, model, path="", rasterized=True):
     plt.yticks(fontsize=15)
 
     filepath = path + "RelativeEnergyContours{model}.pdf".format(
-        model=model.name())
+        model=model.name)
     plt.savefig(filepath, bbox_inches='tight', dpi=300)
     plt.clf()
     print("File {path} saved.".format(path=filepath))
@@ -144,7 +144,7 @@ def df_contours(radius,
     plt.xticks(fontsize=15)
     plt.yticks(fontsize=15)
 
-    filepath = path + "DFContours{model}.pdf".format(model=model.name())
+    filepath = path + "DFContours{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))
@@ -198,8 +198,8 @@ def speed_moment_profile(r, moment, nlabel, model, path=""):
     plt.legend(fontsize=12)
     plt.grid(color="grey")
 
-    filepath = path + "{n}thSpeedMomentVsR{model}.pdf".format(
-        n=nlabel, model=model.name())
+    filepath = path + "{n}thSpeedMomentVsR{model}.pdf".format(n=nlabel,
+                                                              model=model.name)
     plt.savefig(filepath, bbox_inches="tight")
     plt.clf()
     print("File {path} saved.".format(path=filepath))
@@ -240,7 +240,7 @@ def dispersion_profile(r, v_mean, v_sqrd_mean, model, path=""):
     plt.gca().set_aspect(2.5)
     plt.grid(color="grey")
 
-    filepath = path + "Dispersion{model}.pdf".format(model=model.name())
+    filepath = path + "Dispersion{model}.pdf".format(model=model.name)
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print("File {path} saved.".format(path=filepath))

@@ -13,9 +13,11 @@ class Exponential(SphericallySymmetric):
 
     """
 
+    @property
     def name(cls):
         return "Exponential"
 
+    @property
     def has_analytic_df(cls):
         return False
 
