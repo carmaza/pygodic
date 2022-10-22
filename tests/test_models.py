@@ -58,16 +58,12 @@ class TestSphericalModels(unittest.TestCase):
 
     """
 
-    @staticmethod
-    def name():
-        return "TestSphericalModels"
-
     def test(self):
         # Test that mass density is normalized so that total mass = 1.
         def test_mass(model):
             mass = _total_mass(model)
-            msg = "In {name}: mass = {m} is not unity for {model} model.".format(
-                name=self.name(), m=mass, model=model.name)
+            msg = "mass = {m} is not unity for {model} model.".format(
+                m=mass, model=model.name)
             self.assertAlmostEqual(mass, 1., msg=msg)
 
         # Test that potential and density are related via Poisson's equation.
@@ -81,8 +77,8 @@ class TestSphericalModels(unittest.TestCase):
             lap_potential = deriv.second_order(r * r * deriv_potential,
                                                r) / (r * r)
             four_pi_density = 4. * np.pi * model.mass_density(r)
-            msg = "In {name}: Poisson's equation not satisfied for {model} model.".format(
-                name=self.name(), model=model.name)
+            msg = "Poisson's equation not satisfied for {model} model.".format(
+                model=model.name)
             self.assertTrue(np.allclose(
                 (lap_potential - four_pi_density) / four_pi_density,
                 0.,
@@ -102,8 +98,6 @@ class TestSphericalModels(unittest.TestCase):
 
         # Jaffe's model's mass is divergent, so we only test Poisson's equation.
         test_poisson_solution(models.Jaffe())
-
-        print("\nAll tests in {s} passed.".format(s=self.name()))
 
 
 if __name__ == "__main__":
