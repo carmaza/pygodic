@@ -20,5 +20,5 @@ setup(
     ],
     keywords='astrophysics galactic ergodic',
     packages=find_packages(),
-    install_requires=['matplotlib>=3.5.1', 'numpy>=1.22.0', 'scipy>=1.8.0'],
-    python_requires='>=3.8')
+    install_requires=['matplotlib>=3.6.0', 'numpy>=1.23.0', 'scipy>=1.9.0'],
+    python_requires='>=3.10')
