@@ -60,8 +60,7 @@ class TestSphericalModels(unittest.TestCase):
         # Test that mass density is normalized so that total mass = 1.
         def test_mass(model):
             mass = _total_mass(model)
-            msg = "mass = {m} is not unity for {model} model.".format(
-                m=mass, model=model.name)
+            msg = f"mass = {mass} is not unity for {model.name} model."
             self.assertAlmostEqual(mass, 1., msg=msg)
 
         # Test that potential and density are related via Poisson's equation.
@@ -75,8 +74,7 @@ class TestSphericalModels(unittest.TestCase):
             lap_potential = deriv.second_order(r * r * deriv_potential,
                                                r) / (r * r)
             four_pi_density = 4. * np.pi * model.mass_density(r)
-            msg = "Poisson's equation not satisfied for {model} model.".format(
-                model=model.name)
+            msg = f"Poisson's equation not satisfied for {model.name} model."
             self.assertTrue(np.allclose(
                 (lap_potential - four_pi_density) / four_pi_density,
                 0.,
