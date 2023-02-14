@@ -1,14 +1,22 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `FirstDeriv`.
+
+"""
 
 import numpy as np
 
 
 class FirstDeriv:
+    """
+    Helper class defining finite-difference derivatives.
+
+    """
 
     @staticmethod
     def second_order(f, x):
-        """
+        r"""
         Approximate the first derivative using second-order finite difference
         on a grid of $N$ arbitrarily spaced points labeled $j = 0, \hdots, N-1$.
 
