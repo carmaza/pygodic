@@ -94,7 +94,3 @@ class TestSphericalModels(unittest.TestCase):
 
         # Jaffe's model's mass is divergent, so we only test Poisson's equation.
         test_poisson_solution(models.Jaffe())
-
-
-if __name__ == "__main__":
-    unittest.main()
