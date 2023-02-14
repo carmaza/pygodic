@@ -1,15 +1,13 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 
-from context import pygodic
-
 import numpy as np
 import unittest
 
 from pygodic import models
 from pygodic.numalg import integrate
 
-from finite_difference import FirstDeriv
+from .finite_difference import FirstDeriv
 
 
 def _total_mass(model, cutoff=10.):
