@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Contains unit tests for spherical models.
+
+"""
 
 import unittest
 
@@ -46,18 +50,25 @@ class TestSphericalModels(unittest.TestCase):
     """
     Test classes derived from `SphericallySymmetric`.
 
-    Current tests being performed:
-    - Test that integrated mass density gives total mass = 1
-    - Test that deriv_relative_potential and mass_density satisfy Poisson's equation.
-
-    To test new models, simply add them to `models` in the end of `test` function.
-
-    TO-DO: add test for deriv_mass_density, relative_potential, and drho_dpsi.
-    TO-DO: add test for analytical DF's. Good candidate: integral(DF) = rho.
-
     """
 
     def test(self):
+        """
+        Test the following:
+
+        - that integrated mass density gives total mass = 1
+        - that deriv_relative_potential and mass_density satisfy Poisson's equation.
+
+        Notes
+        -----
+
+        To test new models, simply add them to `models` in the end of `test` function.
+
+        TO-DO: add test for deriv_mass_density, relative_potential, and drho_dpsi.
+        TO-DO: add test for analytical DF's. Good candidate: integral(DF) = rho.
+
+        """
+
         # Test that mass density is normalized so that total mass = 1.
         def test_mass(model):
             mass = _total_mass(model)
