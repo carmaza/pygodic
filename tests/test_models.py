@@ -1,8 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 
-import numpy as np
 import unittest
+
+import numpy as np
 
 from pygodic import models
 from pygodic.numalg import integrate
@@ -11,7 +12,7 @@ from .finite_difference import FirstDeriv
 
 
 def _total_mass(model, cutoff=10.):
-    """
+    r"""
     Helper function to compute the total mass by integrating the `model`'s
     spherically symmetric mass density.
 
