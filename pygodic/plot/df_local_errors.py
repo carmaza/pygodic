@@ -103,7 +103,7 @@ def df_local_errors(model,
             plt.setp(axis.get_xticklabels(), fontsize=fontsize)
             plt.setp(axis.get_yticklabels(), fontsize=fontsize)
 
-    fig.supxlabel("$\mathcal{E}$", fontsize=24, y=yforxlabel)
+    fig.supxlabel(r"$\mathcal{E}$", fontsize=24, y=yforxlabel)
     fig.supylabel(r"$|F_\mathrm{num} - F_\mathrm{ana}| / F_\mathrm{ana}$",
                   fontsize=24,
                   x=xforylabel)
