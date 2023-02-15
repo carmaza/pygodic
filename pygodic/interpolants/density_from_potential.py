@@ -8,8 +8,7 @@ of the mass density as a function of the specific gravitational potential.
 
 import numpy as np
 
-import pygodic.plot as plot
-
+from pygodic import plot
 from pygodic.numalg import interpolate
 
 
