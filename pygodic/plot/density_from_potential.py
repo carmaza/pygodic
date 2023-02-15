@@ -8,7 +8,7 @@ Defines the function `plot.density_spline`.
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pygodic.numalg.interpolate as interpolate
+from pygodic.numalg import interpolate
 
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"

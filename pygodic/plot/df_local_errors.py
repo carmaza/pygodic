@@ -4,12 +4,12 @@
 Defines the function `plot.df_local_errors`.
 
 """
+import warnings
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pygodic.eddington_inversion as eddington_inversion
-import pygodic.interpolants as interpolants
+from pygodic import eddington_inversion, interpolants
 
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
@@ -122,7 +122,6 @@ def df_local_errors(model,
 
     # Ignore unnecessary warning originated from known bug:
     # https://github.com/matplotlib/matplotlib/issues/9970
-    import warnings
     warnings.filterwarnings(
         "ignore",
         message=

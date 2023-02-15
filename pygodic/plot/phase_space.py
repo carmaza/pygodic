@@ -13,8 +13,8 @@ Defines the following functions:
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pygodic.eddington_inversion as eddington_inversion
-import pygodic.functions_of_phase_space as functions_of_phase_space
+from pygodic import eddington_inversion
+from pygodic import functions_of_phase_space
 
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"

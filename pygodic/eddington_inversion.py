@@ -7,8 +7,7 @@ Contains algorithms to calculate the DF using Eddington's inversion formula.
 
 import numpy as np
 
-import pygodic.numalg.interpolate as interpolate
-import pygodic.numalg.special as special
+from pygodic.numalg import interpolate, special
 
 
 def antideriv_df(energy, energy_min, drho_dpsi_spline, n_quad=10):

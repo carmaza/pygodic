@@ -10,9 +10,8 @@ Defines the following functions:
 
 import numpy as np
 
-import pygodic.eddington_inversion as eddington_inversion
-import pygodic.numalg.integrate as integrate
-import pygodic.plot
+from pygodic import eddington_inversion, plot
+from pygodic.numalg import integrate
 
 
 def relative_energy(radius, speed, model):
@@ -109,6 +108,6 @@ def speed_moment(radius,
 
     if make_plots:
         label = "{:1.0f}".format(nth)
-        pygodic.plot.speed_moment_profile(radius, moment, label, model)
+        plot.speed_moment_profile(radius, moment, label, model)
 
     return moment

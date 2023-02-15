@@ -12,7 +12,7 @@ Defines the following functions:
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pygodic.models as models
+from pygodic import models
 
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
