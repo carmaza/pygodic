@@ -90,10 +90,10 @@ def df_local_errors(model,
             if relative:
                 error = error / antideriv_df
 
-            ax.plot(energy, error, label="$n={n}$".format(n=str(n)))
+            ax.plot(energy, error, label=rf"$n={n}$")
             ax.grid(visible=True, alpha=0.5)
             if horizontal:
-                ax.set_title("radial points: $10^{p}$".format(p=str(j + 2)),
+                ax.set_title(rf"radial points: $10^{str(j + 2)}$",
                              fontsize=22),
 
             ax.set_xscale("log")
@@ -117,7 +117,7 @@ def df_local_errors(model,
                loc='best',
                ncol=2)
 
-    filepath = path + "ErrorFvsE{model}.pdf".format(model=model.name)
+    filepath = f"{path}ErrorFvsE{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
 
     # Ignore unnecessary warning originated from known bug:
@@ -129,7 +129,7 @@ def df_local_errors(model,
         "Invalid limit will be ignored.")
 
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
     # Manually set figsize back to default value.
     plt.figure(figsize=(6.4, 4.8))

@@ -63,10 +63,10 @@ def density_spline(psi,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=20)
 
-    filepath = path + "RhoVsPsi{model}.pdf".format(model=model.name)
+    filepath = f"{path}RhoVsPsi{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
     # Plot drho/dpsi vs potential.
     plt.plot(psi, drho_dpsi, 'o', color='pink', label="parametric")
@@ -88,7 +88,7 @@ def density_spline(psi,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "dRhodPsi{model}.pdf".format(model=model.name)
+    filepath = f"{path}dRhodPsi{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")

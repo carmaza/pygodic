@@ -64,10 +64,10 @@ def radial_profiles(models, r, normalized=False, path=""):
         plt.yticks(fontsize=20)
         plt.legend(fontsize=18)
 
-        filepath = path + "{fieldname}.pdf".format(fieldname=fieldname)
+        filepath = f"{path}{fieldname}.pdf"
         plt.savefig(filepath, bbox_inches='tight')
         plt.clf()
-        print("File {path} saved.".format(path=filepath))
+        print(f"File {filepath} saved.")
 
     plot_profile("MassDensity", r"$\rho$", xlogscale=True, ylogscale=True)
     plot_profile("RelativePotential", "$\Psi$", xlogscale=True)
@@ -113,7 +113,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
     filepath = path + "DensityVsPotential.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
 
 def available_spherical_profiles():

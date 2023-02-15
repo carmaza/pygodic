@@ -64,11 +64,10 @@ def relative_energy_contours(radius, speed, model, path="", rasterized=True):
     plt.xticks(fontsize=15)
     plt.yticks(fontsize=15)
 
-    filepath = path + "RelativeEnergyContours{model}.pdf".format(
-        model=model.name)
+    filepath = f"{path}RelativeEnergyContours{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight', dpi=300)
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
 
 def df_contours(radius,
@@ -153,10 +152,10 @@ def df_contours(radius,
     plt.xticks(fontsize=15)
     plt.yticks(fontsize=15)
 
-    filepath = path + "DFContours{model}.pdf".format(model=model.name)
+    filepath = f"{path}DFContours{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
 
 def speed_moment_profile(r, moment, nlabel, model, path=""):
@@ -193,7 +192,7 @@ def speed_moment_profile(r, moment, nlabel, model, path=""):
     if nlabel in labels.keys():
         label = labels[nlabel]
     else:
-        label = "{n}th moment".format(n=nlabel)
+        label = f"{nlabel}th moment"
     plt.plot(r, moment, label=label, color="navy")
 
     if nlabel == "0":
@@ -207,11 +206,10 @@ def speed_moment_profile(r, moment, nlabel, model, path=""):
     plt.legend(fontsize=12)
     plt.grid(color="grey")
 
-    filepath = path + "{n}thSpeedMomentVsR{model}.pdf".format(n=nlabel,
-                                                              model=model.name)
+    filepath = f"{path}{nlabel}thSpeedMomentVsR{model.name}.pdf"
     plt.savefig(filepath, bbox_inches="tight")
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
 
 def dispersion_profile(r, v_mean, v_sqrd_mean, model, path=""):
@@ -249,7 +247,7 @@ def dispersion_profile(r, v_mean, v_sqrd_mean, model, path=""):
     plt.gca().set_aspect(2.5)
     plt.grid(color="grey")
 
-    filepath = path + "Dispersion{model}.pdf".format(model=model.name)
+    filepath = f"{path}Dispersion{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")

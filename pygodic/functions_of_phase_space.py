@@ -107,7 +107,7 @@ def speed_moment(radius,
         moment = moment / norm
 
     if make_plots:
-        label = "{:1.0f}".format(nth)
+        label = f"{nth:1.0f}"
         plot.speed_moment_profile(radius, moment, label, model)
 
     return moment

@@ -72,10 +72,10 @@ def antideriv_df_from_energy(energy,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "FvsE{model}.pdf".format(model=model.name)
+    filepath = f"{path}FvsE{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
 
     # Plot DF.
     plt.plot(energy,
@@ -107,7 +107,7 @@ def antideriv_df_from_energy(energy,
     plt.yticks(fontsize=20)
     plt.legend(fontsize=18)
 
-    filepath = path + "DFvsE{model}.pdf".format(model=model.name)
+    filepath = f"{path}DFvsE{model.name}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
-    print("File {path} saved.".format(path=filepath))
+    print(f"File {filepath} saved.")
