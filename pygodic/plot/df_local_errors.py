@@ -26,7 +26,7 @@ def df_local_errors(model,
     """
     Plot sequence of local errors in the antiderivative of the DF.
 
-    Parameters 
+    Parameters
     ----------
 
     `model` : object
