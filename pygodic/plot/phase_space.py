@@ -188,11 +188,7 @@ def speed_moment_profile(r, moment, nlabel, model, path=""):
         "2": "2nd moment (mean speed squared)"
     }
 
-    label = ""
-    if nlabel in labels.keys():
-        label = labels[nlabel]
-    else:
-        label = f"{nlabel}th moment"
+    label = labels.get(nlabel, f"{nlabel}th moment")
     plt.plot(r, moment, label=label, color="navy")
 
     if nlabel == "0":
