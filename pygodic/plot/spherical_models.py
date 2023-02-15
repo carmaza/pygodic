@@ -18,7 +18,7 @@ plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
 
 
-def radial_profiles(models, r, normalized=False, path=""):
+def radial_profiles(sphmodels, r, normalized=False, path=""):
     """
     Plot radial profiles of the mass density and the relative potential for
     the given spherical models.
@@ -26,7 +26,7 @@ def radial_profiles(models, r, normalized=False, path=""):
     Parameters
     ----------
 
-    `models` : list
+    `sphmodels` : list
     List of `SphericallySymmetric` objects from which to extract the profiles.
 
     `r` : array_like
@@ -41,7 +41,7 @@ def radial_profiles(models, r, normalized=False, path=""):
     """
 
     def plot_profile(fieldname, ylabel, xlogscale=False, ylogscale=False):
-        for model in models:
+        for model in sphmodels:
             radial_profile = None
             if fieldname == "MassDensity":
                 radial_profile = model.mass_density
@@ -73,7 +73,7 @@ def radial_profiles(models, r, normalized=False, path=""):
     plot_profile("RelativePotential", r"$\Psi$", xlogscale=True)
 
 
-def density_vs_potential(models, r, ylogscale=False, path=""):
+def density_vs_potential(sphmodels, r, ylogscale=False, path=""):
     """
     Plot the mass density vs the relative potential parametrically for the
     given list of models, using the radial coordinate as parameter.
@@ -81,7 +81,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
     Parameters
     ----------
 
-    `models` : list
+    `sphmodels` : list
     List of `SphericallySymmetric` objects from which to extract the profiles.
 
     `r` : array_like
@@ -94,7 +94,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
     The path where to save the plots.
 
     """
-    for model in models:
+    for model in sphmodels:
         plt.plot(model.relative_potential(r),
                  model.mass_density(r),
                  '.',
