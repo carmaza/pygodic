@@ -79,7 +79,7 @@ def df_contours(radius,
                 logscale=False,
                 path="",
                 rasterized=True):
-    """
+    r"""
     For the given model, plot contours of the DF as a function of the radial
     coordinate and the speed.
 
@@ -232,8 +232,8 @@ def dispersion_profile(r, v_mean, v_sqrd_mean, model, path=""):
     The path where to save the plot.
 
     """
-    plt.plot(r, v_sqrd_mean, color="navy", label="$\overline{v^2}$")
-    plt.plot(r, v_mean * v_mean, color="green", label="$\overline{v}^2$")
+    plt.plot(r, v_sqrd_mean, color="navy", label=r"$\overline{v^2}$")
+    plt.plot(r, v_mean * v_mean, color="green", label=r"$\overline{v}^2$")
     plt.plot(r,
              v_sqrd_mean - v_mean * v_mean,
              color="yellowgreen",

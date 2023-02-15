@@ -56,7 +56,7 @@ def density_spline(psi,
              label="interpolation",
              linewidth=2.5)
 
-    plt.xlabel("$\Psi$", fontsize=20)
+    plt.xlabel(r"$\Psi$", fontsize=20)
     plt.ylabel(r"$\rho$", fontsize=20, labelpad=18, rotation=0)
     plt.yscale('log')
     plt.xticks(fontsize=20)
@@ -81,7 +81,7 @@ def density_spline(psi,
              label="deriv interpolation",
              linewidth=1.2)
 
-    plt.xlabel("$\Psi$", fontsize=20)
+    plt.xlabel(r"$\Psi$", fontsize=20)
     plt.ylabel(r"$\frac{d\rho}{d\Psi}$", fontsize=30, labelpad=24, rotation=0)
     plt.yscale('log')
     plt.xticks(fontsize=20)

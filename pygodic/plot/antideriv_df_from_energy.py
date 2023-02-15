@@ -64,8 +64,8 @@ def antideriv_df_from_energy(energy,
                  label="analytic",
                  linewidth=1.8)
 
-    plt.xlabel("$\mathcal{E}$", fontsize=20)
-    plt.ylabel("$F(\mathcal{E})$", fontsize=20, labelpad=22, rotation=0)
+    plt.xlabel(r"$\mathcal{E}$", fontsize=20)
+    plt.ylabel(r"$F(\mathcal{E})$", fontsize=20, labelpad=22, rotation=0)
     plt.xscale('log')
     plt.yscale('log')
     plt.xticks(fontsize=20)
@@ -99,8 +99,8 @@ def antideriv_df_from_energy(energy,
                  label="analytic",
                  linewidth=1.8)
 
-    plt.xlabel("$\mathcal{E}$", fontsize=20)
-    plt.ylabel("$f(\mathcal{E})$", fontsize=20, labelpad=22, rotation=0)
+    plt.xlabel(r"$\mathcal{E}$", fontsize=20)
+    plt.ylabel(r"$f(\mathcal{E})$", fontsize=20, labelpad=22, rotation=0)
     plt.xscale('log')
     plt.yscale('log')
     plt.xticks(fontsize=20)

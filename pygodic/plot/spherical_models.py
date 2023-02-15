@@ -70,7 +70,7 @@ def radial_profiles(models, r, normalized=False, path=""):
         print(f"File {filepath} saved.")
 
     plot_profile("MassDensity", r"$\rho$", xlogscale=True, ylogscale=True)
-    plot_profile("RelativePotential", "$\Psi$", xlogscale=True)
+    plot_profile("RelativePotential", r"$\Psi$", xlogscale=True)
 
 
 def density_vs_potential(models, r, ylogscale=False, path=""):
@@ -103,7 +103,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
     if ylogscale:
         plt.yscale("log")
 
-    plt.xlabel("$\Psi$", fontsize=20)
+    plt.xlabel(r"$\Psi$", fontsize=20)
     plt.ylabel(r"$\rho$", fontsize=20, rotation=0, labelpad=12)
     plt.xticks(fontsize=20)
     plt.yticks(fontsize=20)
