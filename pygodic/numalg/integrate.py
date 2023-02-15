@@ -17,8 +17,8 @@ def nquad(func, ranges, args=None, opts=None, full_output=False):
 
 
 def romberg(function,
-            a,
-            b,
+            a, # pylint: disable=invalid-name
+            b, # pylint: disable=invalid-name
             args=(),
             tol=1.e-12,
             rtol=1.e-12,
@@ -34,7 +34,7 @@ def romberg(function,
                                    divmax, vec_func)
 
 
-def simpson(y, x=None, dx=1.0, axis=-1, even='avg'):
+def simpson(y, x=None, dx=1.0, axis=-1, even='avg'): # pylint: disable=invalid-name
     """
     Wrapper to `scipy.integrate.simpson`. See the SciPy documentation for
     details.

@@ -10,13 +10,13 @@ import scipy.interpolate
 
 def spline_representation(x,
                           y,
-                          w=None,
-                          xb=None,
-                          xe=None,
+                          w=None, # pylint: disable=invalid-name
+                          xb=None, # pylint: disable=invalid-name
+                          xe=None, # pylint: disable=invalid-name
                           k=3,
                           task=0,
-                          s=None,
-                          t=None,
+                          s=None, # pylint: disable=invalid-name
+                          t=None, # pylint: disable=invalid-name
                           full_output=0,
                           per=0,
                           quiet=1):

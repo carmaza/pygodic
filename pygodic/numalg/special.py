@@ -8,7 +8,7 @@ Wraps some functions from `scipy.special`.
 import scipy.special
 
 
-def roots_jacobi(n, alpha, beta, mu=False):
+def roots_jacobi(n, alpha, beta, mu=False): # pylint: disable=invalid-name
     """
     Wrapper to `scipy.special.roots_jacobi`. See the SciPy documentation
     for details.
