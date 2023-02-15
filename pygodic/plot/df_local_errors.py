@@ -72,7 +72,7 @@ def df_local_errors(model,
         fig.subplots_adjust(wspace=0.1)
 
     for j, axis in enumerate(axs):
-        potential, rho_spline, drho_dpsi_spline = interpolants.density_from_potential(
+        potential, _, drho_dpsi_spline = interpolants.density_from_potential(
             model,
             xi_min,
             xi_max,
@@ -94,7 +94,7 @@ def df_local_errors(model,
             axis.grid(visible=True, alpha=0.5)
             if horizontal:
                 axis.set_title(rf"radial points: $10^{str(j + 2)}$",
-                             fontsize=22),
+                               fontsize=22)
 
             axis.set_xscale("log")
             axis.set_yscale("log")

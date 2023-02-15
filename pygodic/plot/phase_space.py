@@ -44,12 +44,12 @@ def relative_energy_contours(radius, speed, model, path="", rasterized=True):
     energy = functions_of_phase_space.relative_energy(radius, speed, model)
 
     plt.contour(radius, speed, energy, 15)
-    zero_contour = plt.contour(radius,
-                               speed,
-                               energy, [0.],
-                               alpha=0.9,
-                               colors='white',
-                               linewidths=2.5)
+    plt.contour(radius,
+                speed,
+                energy, [0.],
+                alpha=0.9,
+                colors='white',
+                linewidths=2.5)
     contoursf = plt.contourf(radius, speed, energy, 100, alpha=0.5)
 
     if rasterized:
@@ -120,12 +120,11 @@ def df_contours(radius,
         df = 4. * np.pi * speed**2. * df
 
     contoursf = None
-    contours = None
     if logscale:
         # Hack to leave plot empty wherever log10(DF) is not defined.
         df = np.where(df > 0., df, np.nan)
         log_df = np.log10(df)
-        contours = plt.contour(radius, speed, log_df, 20)
+        plt.contour(radius, speed, log_df, 20)
         contoursf = plt.contourf(radius, speed, log_df, 100, alpha=0.3)
 
     else:
@@ -133,11 +132,11 @@ def df_contours(radius,
         # Plot specific contour where DF = 0. However, since the plot contains
         # not a single contour but a whole region where DF = 0, we must use a
         # contour level *close* but not equal to zero.
-        contours = plt.contour(radius,
-                               speed,
-                               df, [1.e-9],
-                               alpha=0.9,
-                               colors='white')
+        plt.contour(radius,
+                    speed,
+                    df, [1.e-9],
+                    alpha=0.9,
+                    colors='white')
         contoursf = plt.contourf(radius, speed, df, 100, alpha=0.5)
 
     if rasterized:
