@@ -28,7 +28,7 @@ def radial_profiles(models, r, normalized=False, path=""):
 
     `models` : list
     List of `SphericallySymmetric` objects from which to extract the profiles.
-    
+
     `r` : array_like
     Radial coordinate. It should be normalized to some characteristic radius.
 
@@ -83,7 +83,7 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
 
     `models` : list
     List of `SphericallySymmetric` objects from which to extract the profiles.
-    
+
     `r` : array_like
     Radial coordinate. It should be normalized to some characteristic radius.
 
