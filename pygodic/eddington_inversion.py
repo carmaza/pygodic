@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Contains algorithms to calculate the DF using Eddington's inversion formula.
+
+"""
 
 import numpy as np
 
@@ -9,9 +13,7 @@ import pygodic.numalg.special as special
 
 def antideriv_df(energy, energy_min, drho_dpsi_spline, n_quad=10):
     """
-    For the given interpolant of the derivative of the mass density with respect
-    to the relative potential, evaluate the antiderivative of the DF at the
-    given energy.
+    Calculate the antiderivative of the DF at the given energy.
 
     Details
     -------

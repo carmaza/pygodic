@@ -1,5 +1,14 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the following functions:
+
+- `plot.relative_energy_contours`
+- `plot.df_contours`
+- `plot.speed_moment_profile`
+- `plot.dispersion_profile`.
+
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np

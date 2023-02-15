@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the function `plot.df_local_errors`.
+
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np

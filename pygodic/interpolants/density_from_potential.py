@@ -1,5 +1,10 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines `interpolants.density_from_potential`, which computes the interpolant
+of the mass density as a function of the specific gravitational potential.
+
+"""
 
 import numpy as np
 

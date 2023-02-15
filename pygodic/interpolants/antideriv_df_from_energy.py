@@ -1,5 +1,10 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines `interpolants.antideriv_df_from_energy`, which computes the interpolant
+for the antiderivative of the DF as a function of the energy.
+
+"""
 
 import numpy as np
 

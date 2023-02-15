@@ -1,5 +1,12 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the following functions:
+
+- `phase_space.relative_energy`
+- `phase_space.speed_moment`
+
+"""
 
 import numpy as np
 

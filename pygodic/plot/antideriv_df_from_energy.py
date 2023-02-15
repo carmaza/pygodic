@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the function `plot.antideriv_df_from_energy`.
+
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np

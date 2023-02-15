@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the function `plot.density_spline`.
+
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np

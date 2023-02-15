@@ -1,5 +1,13 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the following functions:
+
+- `plot.radial_profiles`
+- `plot.density_vs_potential`
+- `plot.available_spherical_profiles`.
+
+"""
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -109,6 +117,10 @@ def density_vs_potential(models, r, ylogscale=False, path=""):
 
 
 def available_spherical_profiles():
+    """
+    Plot all available spherical profiles in a single figure.
+
+    """
     available_models = [
         models.Exponential(),
         models.ExponentialLinear(),
