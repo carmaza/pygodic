@@ -54,10 +54,7 @@ def antideriv_df(energy, energy_min, drho_dpsi_spline, n_quad=10):
         return interpolate.spline_evaluation(potential, drho_dpsi_spline)
 
     integral = np.zeros_like(energy)
-    try:
-        roots, weights = special.roots_jacobi(n_quad, -0.5, 0.)
-    except:
-        roots, weights, _ = special.roots_jacobi(n_quad, -0.5, 0.)
+    roots, weights, *_ = special.roots_jacobi(n_quad, -0.5, 0.)
 
     # Quadrature sum.
     for j in range(n_quad):
