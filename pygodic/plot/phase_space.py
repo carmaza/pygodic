@@ -50,11 +50,11 @@ def relative_energy_contours(radius, speed, model, path="", rasterized=True):
                                alpha=0.9,
                                colors='white',
                                linewidths=2.5)
-    cs = plt.contourf(radius, speed, energy, 100, alpha=0.5)
+    contoursf = plt.contourf(radius, speed, energy, 100, alpha=0.5)
 
     if rasterized:
-        for c in cs.collections:
-            c.set_rasterized(True)
+        for contf in contoursf.collections:
+            contf.set_rasterized(True)
 
     cbar = plt.colorbar()
     cbar.ax.tick_params(labelsize=14)
@@ -119,14 +119,14 @@ def df_contours(radius,
     if spherical:
         df = 4. * np.pi * speed**2. * df
 
-    cs = None
+    contoursf = None
     contours = None
     if logscale:
         # Hack to leave plot empty wherever log10(DF) is not defined.
         df = np.where(df > 0., df, np.nan)
         log_df = np.log10(df)
         contours = plt.contour(radius, speed, log_df, 20)
-        cs = plt.contourf(radius, speed, log_df, 100, alpha=0.3)
+        contoursf = plt.contourf(radius, speed, log_df, 100, alpha=0.3)
 
     else:
         plt.contour(radius, speed, df, 20)
@@ -138,11 +138,11 @@ def df_contours(radius,
                                df, [1.e-9],
                                alpha=0.9,
                                colors='white')
-        cs = plt.contourf(radius, speed, df, 100, alpha=0.5)
+        contoursf = plt.contourf(radius, speed, df, 100, alpha=0.5)
 
     if rasterized:
-        for c in cs.collections:
-            c.set_rasterized(True)
+        for contf in contoursf.collections:
+            contf.set_rasterized(True)
 
     cbar = plt.colorbar()
     cbar.ax.tick_params(labelsize=14)

@@ -71,7 +71,7 @@ def df_local_errors(model,
         xforylabel, yforxlabel = 0.02, -0.1
         fig.subplots_adjust(wspace=0.1)
 
-    for j, ax in enumerate(axs):
+    for j, axis in enumerate(axs):
         potential, rho_spline, drho_dpsi_spline = interpolants.density_from_potential(
             model,
             xi_min,
@@ -90,18 +90,18 @@ def df_local_errors(model,
             if relative:
                 error = error / antideriv_df
 
-            ax.plot(energy, error, label=rf"$n={n}$")
-            ax.grid(visible=True, alpha=0.5)
+            axis.plot(energy, error, label=rf"$n={n}$")
+            axis.grid(visible=True, alpha=0.5)
             if horizontal:
-                ax.set_title(rf"radial points: $10^{str(j + 2)}$",
+                axis.set_title(rf"radial points: $10^{str(j + 2)}$",
                              fontsize=22),
 
-            ax.set_xscale("log")
-            ax.set_yscale("log")
+            axis.set_xscale("log")
+            axis.set_yscale("log")
 
             fontsize = 22 if horizontal else 18
-            plt.setp(ax.get_xticklabels(), fontsize=fontsize)
-            plt.setp(ax.get_yticklabels(), fontsize=fontsize)
+            plt.setp(axis.get_xticklabels(), fontsize=fontsize)
+            plt.setp(axis.get_yticklabels(), fontsize=fontsize)
 
     fig.supxlabel("$\mathcal{E}$", fontsize=24, y=yforxlabel)
     fig.supylabel(r"$|F_\mathrm{num} - F_\mathrm{ana}| / F_\mathrm{ana}$",
