@@ -1,2 +1,6 @@
 # Files resulting from plotters.
 *.pdf
+
+# Build directories
+build*
+pygodic.*
