@@ -19,7 +19,7 @@ def density_from_potential(model,
                            n_pts,
                            k=3,
                            make_plots=False):
-    """
+    r"""
     For the given model of known radial profiles of the mass density $\rho(r)$
     and the relative potential $\Psi(r)$, get interpolants for the mass density
     and its derivative as a function of the relative potential.
