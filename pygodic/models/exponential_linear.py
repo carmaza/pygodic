@@ -33,8 +33,8 @@ class ExponentialLinear(SphericallySymmetric):
         """
         return False
 
-    @property
-    def r90():
+    @classmethod
+    def r90(cls):
         """
         The radius containing 90% of the matter.
 
