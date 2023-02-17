@@ -137,11 +137,10 @@ class Jaffe(SphericallySymmetric):
         """
         if plus_or_minus == +1:
             return 0.5 * np.sqrt(np.pi) * np.exp(-x * x) * special.erfi(x)
-        elif plus_or_minus == -1:
+        if plus_or_minus == -1:
             return 0.5 * np.sqrt(np.pi) * np.exp(x * x) * special.erf(x)
-        else:
-            raise ValueError(
-                "In Dawson's Integral: value different from +1 or -1.")
+        raise ValueError(
+            "In Dawson's Integral: value different from +1 or -1.")
 
     def antideriv_df(self, e):
         """
