@@ -7,7 +7,7 @@ Defines class `models.Jaffe`.
 
 import numpy as np
 
-from scipy import special
+from pygodic.numalg import special
 
 from .spherically_symmetric import SphericallySymmetric
 

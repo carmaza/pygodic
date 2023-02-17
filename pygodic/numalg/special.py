@@ -15,3 +15,19 @@ def roots_jacobi(n, alpha, beta, mu=False): # pylint: disable=invalid-name
 
     """
     return scipy.special.roots_jacobi(n, alpha, beta, mu)
+
+
+def erf(z, out=None):
+    """
+    Wrapper to `scipy.special.erf`. See the SciPy documentation for details.
+
+    """
+    return scipy.special.erf(z, out)
+
+
+def erfi(z, out=None):
+    """
+    Wrapper to `scipy.special.erfi`. See the SciPy documentation for details.
+
+    """
+    return scipy.special.erfi(z, out)
