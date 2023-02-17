@@ -30,43 +30,38 @@ class SphericallySymmetric(metaclass=abc.ABCMeta):
 
         """
 
-    @staticmethod
     @abc.abstractmethod
-    def mass_density(r):
+    def mass_density(self, r):
         """
         Return the mass density as a function of the radial coordinate.
 
         """
 
-    @staticmethod
     @abc.abstractmethod
-    def deriv_mass_density(r):
+    def deriv_mass_density(self, r):
         """
         Return the derivative of the mass density with respect to the radial
         coordinate.
 
         """
 
-    @staticmethod
     @abc.abstractmethod
-    def relative_potential(r, offset):
+    def relative_potential(self, r, offset):
         """
         Return the relative potential as a function of the radial coordinate.
 
         """
 
-    @staticmethod
     @abc.abstractmethod
-    def deriv_relative_potential(r, offset):
+    def deriv_relative_potential(self, r, offset):
         """
         Return the derivative of the relative potential with respect to the
         radial coordinate.
 
         """
 
-    @staticmethod
     @abc.abstractmethod
-    def drho_dpsi(r, offset):
+    def drho_dpsi(self, r, offset):
         """
         Return the derivative of the relative potential with respect to the
         mass density.
