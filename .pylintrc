@@ -1,0 +1,16 @@
+[MESSAGES CONTROL]
+
+disable=duplicate-code,
+        too-few-public-methods,
+	too-many-arguments,
+	too-many-locals,
+
+[BASIC]
+
+good-names=n, # An arbitrary size.
+	   i, j, k, # Various dummy indices.
+	   x, y, z, # Cartesian coordinates.
+	   r, u, # Spherical coordinates.
+           v, # Velocity.
+	   e, f, g, df, # The DF and related functions.
+	   _
