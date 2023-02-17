@@ -13,4 +13,5 @@ good-names=n, # An arbitrary size.
 	   r, u, # Spherical coordinates.
            v, # Velocity.
 	   e, f, g, df, # The DF and related functions.
+	   a, # Auxiliary length.
 	   _
