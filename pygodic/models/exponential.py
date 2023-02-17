@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `models.Exponential`.
+
+"""
 
 import numpy as np
 
@@ -15,10 +19,18 @@ class Exponential(SphericallySymmetric):
 
     @property
     def name(cls):
+        """
+        The class name.
+
+        """
         return "Exponential"
 
     @property
     def has_analytic_df(cls):
+        """
+        Whether the model has an analytic DF.
+
+        """
         return False
 
     def mass_density(self, r):

@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Contains classes representing ergodic models.
+
+"""
 
 from .exponential import *
 from .exponential_linear import *

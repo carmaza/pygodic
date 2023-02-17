@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines the base class for spherical models.
+
+"""
 
 import abc
 
@@ -13,34 +17,58 @@ class SphericallySymmetric(metaclass=abc.ABCMeta):
     @property
     @abc.abstractmethod
     def name():
-        pass
+        """
+        The class name.
+
+        """
 
     @property
     @abc.abstractmethod
     def has_analytic_df():
-        pass
+        """
+        Whether the model has an analytic DF.
+
+        """
 
     @staticmethod
     @abc.abstractmethod
     def mass_density(r):
-        pass
+        """
+        Return the mass density as a function of the radial coordinate.
+
+        """
 
     @staticmethod
     @abc.abstractmethod
     def deriv_mass_density(r):
-        pass
+        """
+        Return the derivative of the mass density with respect to the radial
+        coordinate.
+
+        """
 
     @staticmethod
     @abc.abstractmethod
     def relative_potential(r, offset):
-        pass
+        """
+        Return the relative potential as a function of the radial coordinate.
+
+        """
 
     @staticmethod
     @abc.abstractmethod
     def deriv_relative_potential(r, offset):
-        pass
+        """
+        Return the derivative of the relative potential with respect to the
+        radial coordinate.
+
+        """
 
     @staticmethod
     @abc.abstractmethod
     def drho_dpsi(r, offset):
-        pass
+        """
+        Return the derivative of the relative potential with respect to the
+        mass density.
+
+        """

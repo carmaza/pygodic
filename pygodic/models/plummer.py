@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `models.Plummer`.
+
+"""
 
 import numpy as np
 
@@ -14,10 +18,18 @@ class Plummer(SphericallySymmetric):
 
     @property
     def name(cls):
+        """
+        The class name.
+
+        """
         return "Plummer"
 
     @property
     def has_analytic_df(cls):
+        """
+        Whether the model has an analytic DF.
+
+        """
         return True
 
     def mass_density(self, r):

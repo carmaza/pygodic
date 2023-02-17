@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `models.Jaffe`.
+
+"""
 
 import numpy as np
 
@@ -16,10 +20,18 @@ class Jaffe(SphericallySymmetric):
 
     @property
     def name(cls):
+        """
+        The class name.
+
+        """
         return "Jaffe"
 
     @property
     def has_analytic_df(cls):
+        """
+        Whether the model has an analytic DF.
+
+        """
         return True
 
     def mass_density(self, r):

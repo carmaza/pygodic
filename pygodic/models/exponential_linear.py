@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `models.ExponentialLinear`.
+
+"""
 
 import numpy as np
 
@@ -12,17 +16,28 @@ class ExponentialLinear(SphericallySymmetric):
     coordinate origin, combines a linear growth and an exponential decay.
 
     """
-
     @property
     def name(cls):
+        """
+        The class name.
+
+        """
         return "ExponentialLinear"
 
     @property
     def has_analytic_df():
+        """
+        Whether the model has an analytic DF.
+
+        """
         return False
 
     @property
     def r90():
+        """
+        The radius containing 90% of the matter.
+
+        """
         return 3.61
 
     def mass_density(self, r):

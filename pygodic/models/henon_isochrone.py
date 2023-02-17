@@ -1,5 +1,9 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
+"""
+Defines class `models.HenonIsochrone`.
+
+"""
 
 import numpy as np
 
@@ -14,10 +18,18 @@ class HenonIsochrone(SphericallySymmetric):
 
     @property
     def name(cls):
+        """
+        The class name.
+
+        """
         return "HenonIsochrone"
 
     @property
     def has_analytic_df(cls):
+        """
+        Whether the model has an analytic DF.
+
+        """
         return True
 
     def mass_density(self, r):
@@ -128,9 +140,17 @@ class HenonIsochrone(SphericallySymmetric):
                 (10. + a)) / (4. * np.pi * r**2. * a**5.)
 
     def f(self, e):
+        """
+        The antiderivative of the DF.
+
+        """
         print("WARNING: analytic Henon's isochrone DF not implemented yet.")
         return 1.
 
     def df(self, e):
+        """
+        The DF.
+
+        """
         print("WARNING: analytic Henon's isochrone DF not implemented yet.")
         return 1.
