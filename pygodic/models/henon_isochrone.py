@@ -16,7 +16,7 @@ class HenonIsochrone(SphericallySymmetric):
 
     """
 
-    @property
+    @classmethod
     def name(cls):
         """
         The class name.
@@ -24,7 +24,7 @@ class HenonIsochrone(SphericallySymmetric):
         """
         return "HenonIsochrone"
 
-    @property
+    @classmethod
     def has_analytic_df(cls):
         """
         Whether the model has an analytic DF.

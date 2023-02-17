@@ -14,17 +14,17 @@ class SphericallySymmetric(metaclass=abc.ABCMeta):
 
     """
 
-    @property
+    @classmethod
     @abc.abstractmethod
-    def name():
+    def name(cls):
         """
         The class name.
 
         """
 
-    @property
+    @classmethod
     @abc.abstractmethod
-    def has_analytic_df():
+    def has_analytic_df(cls):
         """
         Whether the model has an analytic DF.
 

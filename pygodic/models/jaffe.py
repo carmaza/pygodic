@@ -18,7 +18,7 @@ class Jaffe(SphericallySymmetric):
 
     """
 
-    @property
+    @classmethod
     def name(cls):
         """
         The class name.
@@ -26,7 +26,7 @@ class Jaffe(SphericallySymmetric):
         """
         return "Jaffe"
 
-    @property
+    @classmethod
     def has_analytic_df(cls):
         """
         Whether the model has an analytic DF.

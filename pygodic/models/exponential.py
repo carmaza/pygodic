@@ -17,7 +17,7 @@ class Exponential(SphericallySymmetric):
 
     """
 
-    @property
+    @classmethod
     def name(cls):
         """
         The class name.
@@ -25,7 +25,7 @@ class Exponential(SphericallySymmetric):
         """
         return "Exponential"
 
-    @property
+    @classmethod
     def has_analytic_df(cls):
         """
         Whether the model has an analytic DF.
