@@ -144,13 +144,13 @@ class HenonIsochrone(SphericallySymmetric):
         The antiderivative of the DF.
 
         """
-        print("WARNING: analytic Henon's isochrone DF not implemented yet.")
-        return 1.
+        raise NotImplementedError(
+            """WARNING: analytic Henon's isochrone DF not implemented yet.""")
 
     def df(self, e):
         """
         The DF.
 
         """
-        print("WARNING: analytic Henon's isochrone DF not implemented yet.")
-        return 1.
+        raise NotImplementedError(
+            """WARNING: analytic Henon's isochrone DF not implemented yet.""")
