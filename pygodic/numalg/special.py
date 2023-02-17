@@ -22,7 +22,7 @@ def erf(z, out=None):
     Wrapper to `scipy.special.erf`. See the SciPy documentation for details.
 
     """
-    return scipy.special.erf(z, out)
+    return scipy.special.erf(z, out) # pylint: disable=no-member
 
 
 def erfi(z, out=None):
@@ -30,4 +30,4 @@ def erfi(z, out=None):
     Wrapper to `scipy.special.erfi`. See the SciPy documentation for details.
 
     """
-    return scipy.special.erfi(z, out)
+    return scipy.special.erfi(z, out) # pylint: disable=no-member
