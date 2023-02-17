@@ -79,10 +79,10 @@ class HenonIsochrone(SphericallySymmetric):
     def relative_potential(self, r, offset=0.):
         """
         The radial profile of the relative potential.
-    
+
         Parameters
         ----------
-        
+
         `r` : array_like
         Radial coordinate in units of $b$, the characteristic lengthscale
         within which the mass density is roughly constant.
@@ -99,10 +99,10 @@ class HenonIsochrone(SphericallySymmetric):
     def deriv_relative_potential(self, r, offset=0.):
         """
         The radial derivative of the profile of the relative potential.
-    
+
         Parameters
         ----------
-        
+
         `r` : array_like
         Radial coordinate in units of $b$, the characteristic lengthscale
         within which the mass density is roughly constant.
@@ -120,10 +120,10 @@ class HenonIsochrone(SphericallySymmetric):
     def drho_dpsi(self, r, offset=0.):
         """
         The ratio `deriv_mass_density(r)` / `deriv_relative_potential(r)`.
-    
+
         Parameters
         ----------
-        
+
         `r` : array_like
         Radial coordinate in units of $b$, the characteristic lengthscale
         within which the mass density is roughly constant.
