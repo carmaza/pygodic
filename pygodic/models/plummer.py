@@ -145,8 +145,8 @@ class Plummer(SphericallySymmetric):
 
         """
         n = 5
-        F = 24. * np.sqrt(2.) / (7. * np.pi**3.)
-        return F * np.power(e, n - 0.5) / (n - 0.5)
+        prefactor = 24. * np.sqrt(2.) / (7. * np.pi**3.)
+        return prefactor * np.power(e, n - 0.5) / (n - 0.5)
 
     def df(self, e):
         """
@@ -166,5 +166,5 @@ class Plummer(SphericallySymmetric):
 
         """
         n = 5
-        F = 24. * np.sqrt(2.) / (7. * np.pi**3.)
-        return F * np.power(e, n - 1.5)
+        prefactor = 24. * np.sqrt(2.) / (7. * np.pi**3.)
+        return prefactor * np.power(e, n - 1.5)
