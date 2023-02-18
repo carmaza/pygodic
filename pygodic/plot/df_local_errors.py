@@ -125,8 +125,8 @@ def df_local_errors(model,
     warnings.filterwarnings(
         "ignore",
         message=
-        "Attempted to set non-positive bottom ylim on a log-scaled axis.\n"
-        "Invalid limit will be ignored.")
+        "Attempt to set non-positive ylim on a log-scaled axis will be ignored."
+    )
 
     plt.clf()
     print(f"File {filepath} saved.")
