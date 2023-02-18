@@ -3,8 +3,8 @@
 """
 Defines the following functions:
 
-- `phase_space.relative_energy`
-- `phase_space.speed_moment`
+- `phasespace.relative_energy`
+- `phasespace.speed_moment`
 
 """
 

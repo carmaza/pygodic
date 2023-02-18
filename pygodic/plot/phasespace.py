@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from pygodic import eddington_inversion
-from pygodic import functions_of_phase_space
+from pygodic import phasespace
 
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
@@ -41,7 +41,7 @@ def relative_energy_contours(radius, speed, model, path="", rasterized=True):
     Whether to rasterize the contour plot.
 
     """
-    energy = functions_of_phase_space.relative_energy(radius, speed, model)
+    energy = phasespace.relative_energy(radius, speed, model)
 
     plt.contour(radius, speed, energy, 15)
     plt.contour(radius,
@@ -113,7 +113,7 @@ def df_contours(radius,
     Whether to rasterize the contour plot.
 
     """
-    energy = functions_of_phase_space.relative_energy(radius, speed, model)
+    energy = phasespace.relative_energy(radius, speed, model)
 
     df = eddington_inversion.df(energy, energy_min, antideriv_df_spline)
     if spherical:
