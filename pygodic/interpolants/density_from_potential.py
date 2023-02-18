@@ -80,7 +80,7 @@ def density_from_potential(model,
     drho_dpsi_spline = interpolate.spline_representation(psi, drho_dpsi, k=k)
 
     if make_plots:
-        plot.density_spline(psi, rho, drho_dpsi, rho_spline, drho_dpsi_spline,
-                            model)
+        plot.density_from_potential(psi, rho, drho_dpsi, rho_spline,
+                                    drho_dpsi_spline, model)
 
     return psi, rho_spline, drho_dpsi_spline

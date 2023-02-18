@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines the function `plot.density_spline`.
+Defines the function `plot.density_from_potential`.
 
 """
 
@@ -14,14 +14,14 @@ plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
 
 
-def density_spline(psi,
-                   rho,
-                   drho_dpsi,
-                   rho_spline,
-                   drho_dpsi_spline,
-                   model,
-                   npts=500,
-                   path=""):
+def density_from_potential(psi,
+                           rho,
+                           drho_dpsi,
+                           rho_spline,
+                           drho_dpsi_spline,
+                           model,
+                           npts=500,
+                           path=""):
     """
     Plot interpolation of the mass density and its derivative as a function of
     the relative potential.
