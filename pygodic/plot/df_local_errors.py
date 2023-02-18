@@ -73,12 +73,7 @@ def df_local_errors(model,
 
     for j, axis in enumerate(axs):
         potential, _, drho_dpsi_spline = interpolants.density_from_potential(
-            model,
-            xi_min,
-            xi_max,
-            radial_resolutions[j],
-            k=3,
-            make_plots=False)
+            model, xi_min, xi_max, radial_resolutions[j], k=3)
 
         energy = np.geomspace(potential[0], potential[-1], pts_ene)
         antideriv_df = model.antideriv_df(energy)

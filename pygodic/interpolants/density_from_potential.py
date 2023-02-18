@@ -9,15 +9,9 @@ of the mass density as a function of the specific gravitational potential.
 import numpy as np
 
 from pygodic.numalg import interpolate
-from pygodic.plot import density_from_potential as makeplot
 
 
-def density_from_potential(model,
-                           xi_min,
-                           xi_max,
-                           n_pts,
-                           k=3,
-                           make_plots=False):
+def density_from_potential(model, xi_min, xi_max, n_pts, k=3):
     r"""
     For the given model of known radial profiles of the mass density $\rho(r)$
     and the relative potential $\Psi(r)$, get interpolants for the mass density
@@ -49,10 +43,6 @@ def density_from_potential(model,
     `k` : int (optional, default: 3)
     The order of the interpolations. Must be in the range [1, 5].
 
-    `make_plots` : bool (optional, default: False)
-    Whether to make plots of the interpolants evaluated at a dense set, along
-    with the points used to get the interpolants.
-
     Returns
     -------
 
@@ -78,8 +68,5 @@ def density_from_potential(model,
 
     rho_spline = interpolate.spline_representation(psi, rho, k=k)
     drho_dpsi_spline = interpolate.spline_representation(psi, drho_dpsi, k=k)
-
-    if make_plots:
-        makeplot(psi, rho, drho_dpsi, rho_spline, drho_dpsi_spline, model)
 
     return psi, rho_spline, drho_dpsi_spline

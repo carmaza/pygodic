@@ -10,7 +10,7 @@ Defines the following functions:
 
 import numpy as np
 
-from pygodic import eddington_inversion, plot
+from pygodic import eddington_inversion
 from pygodic.numalg import integrate
 
 
@@ -45,8 +45,7 @@ def speed_moment(radius,
                  drho_dpsi_spline,
                  model,
                  norm=None,
-                 divmax=20,
-                 make_plots=False):
+                 divmax=20):
     """
     Get the $n$--th moment of the speed as a function of the radial coordinate.
     The moment is weighted with the spherical DF.
@@ -78,9 +77,6 @@ def speed_moment(radius,
     The maximum number of iterations in the integration. Increase this
     parameter if more accuracy is needed.
 
-    `make_plots` : bool (optional, default: False)
-    Whether to make a plot of the moment vs the radial coordinate.
-
     Returns
     -------
 
@@ -105,9 +101,5 @@ def speed_moment(radius,
                                       divmax=divmax)
     if norm is not None:
         moment = moment / norm
-
-    if make_plots:
-        label = f"{nth:1.0f}"
-        plot.speed_moment_profile(radius, moment, label, model)
 
     return moment

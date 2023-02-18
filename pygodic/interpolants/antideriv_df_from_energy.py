@@ -10,16 +10,9 @@ import numpy as np
 
 from pygodic import eddington_inversion
 from pygodic.numalg import interpolate
-from pygodic.plot import antideriv_df_from_energy as makeplot
 
 
-def antideriv_df_from_energy(model,
-                             psi_min,
-                             psi_max,
-                             drho_dpsi_spline,
-                             n_pts,
-                             k=3,
-                             make_plots=False):
+def antideriv_df_from_energy(psi_min, psi_max, drho_dpsi_spline, n_pts, k=3):
     """
     For the given model, get interpolant for the antiderivative of the DF as a
     function of the relative energy.
@@ -35,9 +28,6 @@ def antideriv_df_from_energy(model,
     Parameters
     ----------
 
-    `model` : object
-    The model in consideration.
-
     `psi_min`, `psi_max` : float, float
     The bounds of the energy range within which the interpolant will be valid.
 
@@ -50,12 +40,6 @@ def antideriv_df_from_energy(model,
 
     `k` : int (optional, default: 3)
     The order of the interpolation. Must be in the range [1, 5].
-
-    `make_plots` : bool (optional, default: False)
-    Whether to plot the resulting interpolant evaluated at a dense set, along
-    with the points used to get the interpolant. This function will also plot
-    the resulting numerical DF (derivative of the interpolant), as well as
-    analytic curves if available.
 
     Returns
     -------
@@ -73,8 +57,5 @@ def antideriv_df_from_energy(model,
     antideriv_df_spline = interpolate.spline_representation(energy,
                                                             antideriv_df,
                                                             k=k)
-
-    if make_plots:
-        makeplot(energy, antideriv_df, antideriv_df_spline, model)
 
     return energy, antideriv_df_spline
