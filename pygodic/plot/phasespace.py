@@ -132,11 +132,7 @@ def df_contours(radius,
         # Plot specific contour where DF = 0. However, since the plot contains
         # not a single contour but a whole region where DF = 0, we must use a
         # contour level *close* but not equal to zero.
-        plt.contour(radius,
-                    speed,
-                    df, [1.e-9],
-                    alpha=0.9,
-                    colors='white')
+        plt.contour(radius, speed, df, [1.e-9], alpha=0.9, colors='white')
         contoursf = plt.contourf(radius, speed, df, 100, alpha=0.5)
 
     if rasterized:
