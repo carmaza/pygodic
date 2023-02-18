@@ -8,8 +8,8 @@ of the mass density as a function of the specific gravitational potential.
 
 import numpy as np
 
-from pygodic import plot
 from pygodic.numalg import interpolate
+from pygodic.plot import density_from_potential as makeplot
 
 
 def density_from_potential(model,
@@ -80,7 +80,6 @@ def density_from_potential(model,
     drho_dpsi_spline = interpolate.spline_representation(psi, drho_dpsi, k=k)
 
     if make_plots:
-        plot.density_from_potential(psi, rho, drho_dpsi, rho_spline,
-                                    drho_dpsi_spline, model)
+        makeplot(psi, rho, drho_dpsi, rho_spline, drho_dpsi_spline, model)
 
     return psi, rho_spline, drho_dpsi_spline

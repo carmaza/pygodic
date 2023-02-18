@@ -8,8 +8,9 @@ for the antiderivative of the DF as a function of the energy.
 
 import numpy as np
 
-from pygodic import eddington_inversion, plot
+from pygodic import eddington_inversion
 from pygodic.numalg import interpolate
+from pygodic.plot import antideriv_df_from_energy as makeplot
 
 
 def antideriv_df_from_energy(model,
@@ -74,7 +75,6 @@ def antideriv_df_from_energy(model,
                                                             k=k)
 
     if make_plots:
-        plot.antideriv_df_from_energy(energy, antideriv_df,
-                                      antideriv_df_spline, model)
+        makeplot(energy, antideriv_df, antideriv_df_spline, model)
 
     return energy, antideriv_df_spline
