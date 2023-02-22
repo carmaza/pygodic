@@ -1,72 +1,80 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines `interpolants.density_from_potential`, which computes the interpolant
-of the mass density as a function of the specific gravitational potential.
+Defines `interpolants.DensityFromPotential`.
 
 """
 
 import numpy as np
 
-from pygodic.numalg import interpolate
+from scipy.interpolate import UnivariateSpline
 
 
-def density_from_potential(model, xi_min, xi_max, n_pts, k=3):
-    r"""
-    For the given model of known radial profiles of the mass density $\rho(r)$
-    and the relative potential $\Psi(r)$, get interpolants for the mass density
-    and its derivative as a function of the relative potential.
-
-    Details
-    -------
-
-    The interpolant will be a B-spline of the given order `k`. The absisas of
-    the interpolation will be the set $\{r_j\} = \{\exp(\\xi_j)\}$,
-    $j = 0,1,\hdots$, where $\\xi_j$ is a uniformly distributed parameter in the
-    range $[\\xi_\text{min}, \\xi_\text{max}]$. The ordinates of the
-    interpolation for the mass density and its derivative will be, respectively,
-    the sets $\{\rho(r_j)\}$ and $\{u(\r_j)\}$, where
-    $u(r) \equiv \rho'(r)/\Psi'(r)$.
-
-    Parameters
-    ----------
-
-    `model` : object
-    The model in consideration. Must be a `SphericallySymmetric` object.
-
-    `xi_min`, `xi_max` : float, float
-    The minimum and maximum values for the parameter $\\xi$.
-
-    `n_pts` : int
-    The number of points used to get the interpolants.
-
-    `k` : int (optional, default: 3)
-    The order of the interpolations. Must be in the range [1, 5].
-
-    Returns
-    -------
-
-    out : ndarray, object, object
-    Tuple containing, respectively, the set of potentials used to obtain the
-    interpolants, the B-spline representation of the interpolant of the mass
-    density, and the B-spline representation of the interpolant of the
-    derivative of the mass density.
+class LogRhoVsLogPsi(UnivariateSpline):
+    """
+    Interpolant for the log-log mass density vs relative potential relationship.
 
     Notes
     -----
 
-    - The radial profiles are assummed to be decreasing functions of the radial
-      coordinate.
+    This class inherits from `scipy.interpolate.UnivariateSpline`. See the SciPy
+    documentation for details.
 
     """
-    radius = np.exp(np.linspace(xi_min, xi_max, n_pts))
 
-    # Radial profiles are decreasing so we need to flip arrays to interpolate.
-    psi = np.flip(model.relative_potential(radius))
-    rho = np.flip(model.mass_density(radius))
-    drho_dpsi = np.flip(model.drho_dpsi(radius))
+    def __init__(self, model, r_bounds, pts_rad, k=3):
+        """
+        Parameters
+        ----------
 
-    rho_spline = interpolate.spline_representation(psi, rho, k=k)
-    drho_dpsi_spline = interpolate.spline_representation(psi, drho_dpsi, k=k)
+        model : obj
+            The spherical model used to construct the interpolant. Must be a
+            SphericalModel instance.
 
-    return psi, rho_spline, drho_dpsi_spline
+        r_bounds : tuple
+            The bounds of the radial grid on which to evaluate the fields.
+
+        pts_rad : int
+            The target number of points of the radial grid.
+
+        k : int (optional, default: 3)
+            The degree of the smoothing spline. Must be one of [1, 2, 3, 4, 5].
+            k = 3 is a cubic spline.
+
+        """
+        self._radial_grid = np.linspace(r_bounds[0], r_bounds[1], pts_rad)
+
+        # Radial profiles are decreasing so we need to flip arrays to interpolate.
+        self._logpsi = np.log10(
+            np.flip(model.relative_potential(self._radial_grid)))
+        self._logrho = np.log10(np.flip(model.mass_density(self._radial_grid)))
+
+        super().__init__(self._logpsi,
+                         self._logrho,
+                         k=k,
+                         ext='raise',
+                         check_finite=True)
+
+    @property
+    def radial_grid(self):
+        """
+        The radial grid on which to evaluate the fields.
+
+        """
+        return self._radial_grid
+
+    @property
+    def logpsi(self):
+        """
+        The logarithm of the relative potential.
+
+        """
+        return self._logpsi
+
+    @property
+    def logrho(self):
+        """
+        The logarithm of the mass density.
+
+        """
+        return self._logrho
