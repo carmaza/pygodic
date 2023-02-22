@@ -44,15 +44,26 @@ class LogRhoVsLogPsi(UnivariateSpline):
         self._radial_grid = np.linspace(r_bounds[0], r_bounds[1], pts_rad)
 
         # Radial profiles are decreasing so we flip arrays to interpolate.
-        self._logpsi = np.log10(
-            np.flip(model.relative_potential(self._radial_grid)))
-        self._logrho = np.log10(np.flip(model.mass_density(self._radial_grid)))
+        psi = np.flip(model.relative_potential(self._radial_grid))
+        rho = np.flip(model.mass_density(self._radial_grid))
+
+        self._logpsi = np.log10(psi)
+        self._logrho = np.log10(rho)
+        self._dlr_dlp = psi * np.flip(model.drho_dpsi(self._radial_grid)) / rho
 
         super().__init__(self._logpsi,
                          self._logrho,
                          k=k,
                          ext='raise',
                          check_finite=True)
+
+    @property
+    def dlr_dlp(self) -> npt.NDArray:
+        """
+        The derivative of log density with respect to log potential.
+
+        """
+        return self._dlr_dlp
 
     @property
     def logpsi(self) -> npt.NDArray:
