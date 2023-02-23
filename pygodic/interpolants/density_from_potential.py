@@ -36,7 +36,7 @@ class LogRhoVsLogPsi(UnivariateSpline):
     -----
 
     This class inherits from ``scipy.interpolate.UnivariateSpline``. See
-    `its documentation`_ for details.
+    `its documentation`_ for a reference on its additional members.
 
     .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html
 
