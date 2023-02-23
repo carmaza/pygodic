@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines class `LogRhoVsLogPsi`.
+Defines class ``LogRhoVsLogPsi``.
 
 """
 
@@ -35,8 +35,10 @@ class LogRhoVsLogPsi(UnivariateSpline):
     Notes
     -----
 
-    This class inherits from ``scipy.interpolate.UnivariateSpline``. See the
-    SciPy documentation for details.
+    This class inherits from ``scipy.interpolate.UnivariateSpline``. See
+    `its documentation`_ for details.
+
+    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html
 
     """
 
