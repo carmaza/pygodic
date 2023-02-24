@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines class ``LogRhoVsLogPsi``.
+Defines class :class:`.LogRhoVsLogPsi`
 
 """
 
@@ -30,7 +30,7 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
 
     k : int (optional, default: 3)
         The degree of the smoothing spline. Must be one of ``[1, 2, 3, 4, 5]``.
-        `k = 3` is a cubic spline.
+        ``k = 3`` is a cubic spline.
 
     Notes
     -----
@@ -39,8 +39,8 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
       as we obtain the interpolation points to arbitrary precision from
       analytic profiles.
 
-    - This class inherits from ``scipy.interpolate.Akima1DInterpolator``. See
-      `its documentation`_ for a reference on its additional members.
+    - This class inherits from :class:`.scipy.interpolate.Akima1DInterpolator`.
+      See `its documentation`_ for a reference on members not documented here.
 
     .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.Akima1DInterpolator.html
 
@@ -54,11 +54,11 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
         psi = model.relative_potential(rev_grid)
         rho = model.mass_density(rev_grid)
 
-        self._logpsi = np.log10(psi)
+        logpsi = np.log10(psi)
         self._logrho = np.log10(rho)
         self._dlr_dlp = psi * model.drho_dpsi(rev_grid) / rho
 
-        super().__init__(self._logpsi, self._logrho)
+        super().__init__(logpsi, self._logrho)
 
     @property
     def dlr_dlp(self) -> npt.NDArray:
@@ -74,7 +74,7 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
         The logarithm of the relative potential.
 
         """
-        return self._logpsi
+        return self.x
 
     @property
     def logrho(self) -> npt.NDArray:
