@@ -8,10 +8,10 @@ Defines class ``LogRhoVsLogPsi``.
 import numpy as np
 import numpy.typing as npt
 
-from scipy.interpolate import UnivariateSpline
+from scipy.interpolate import Akima1DInterpolator
 
 
-class LogRhoVsLogPsi(UnivariateSpline):
+class LogRhoVsLogPsi(Akima1DInterpolator):
     """
     Interpolant for the log-log mass density vs relative potential relationship.
 
@@ -35,10 +35,14 @@ class LogRhoVsLogPsi(UnivariateSpline):
     Notes
     -----
 
-    This class inherits from ``scipy.interpolate.UnivariateSpline``. See
-    `its documentation`_ for a reference on its additional members.
+    - This class uses Akima's 1D interpolator (1970). This choice is justified,
+      as we obtain the interpolation points to arbitrary precision from
+      analytic profiles.
 
-    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html
+    - This class inherits from ``scipy.interpolate.Akima1DInterpolator``. See
+      `its documentation`_ for a reference on its additional members.
+
+    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.Akima1DInterpolator.html
 
     """
 
@@ -54,11 +58,7 @@ class LogRhoVsLogPsi(UnivariateSpline):
         self._logrho = np.log10(rho)
         self._dlr_dlp = psi * model.drho_dpsi(rev_grid) / rho
 
-        super().__init__(self._logpsi,
-                         self._logrho,
-                         k=k,
-                         ext='raise',
-                         check_finite=True)
+        super().__init__(self._logpsi, self._logrho)
 
     @property
     def dlr_dlp(self) -> npt.NDArray:
