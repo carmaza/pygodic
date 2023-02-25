@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines the function `plot.density_from_potential`.
+Defines the function :func:`density_from_potential`.
 
 """
 
@@ -14,14 +14,7 @@ plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
 
 
-def density_from_potential(psi,
-                           rho,
-                           drho_dpsi,
-                           rho_spline,
-                           drho_dpsi_spline,
-                           model,
-                           npts=500,
-                           path=""):
+def density_from_potential(spline, model, dense_npts=500, path=""):
     """
     Plot interpolation of the mass density and its derivative as a function of
     the relative potential.
@@ -29,66 +22,70 @@ def density_from_potential(psi,
     Parameters
     ----------
 
-    `psi`, `rho`, drho_dpsi` : array_like, array_like, array_like
-    The points used to get the interpolation.
+    spline : obj
+        The B-spline representation of the curve. Must be a
+        :class:`.LogRhoVsLogPsi` object.
 
-    `rho_spline`, `drho_dpsi_spline` : object, object
-    The B-spline representations of the interpolant of the mass density and
-    its derivative.
+    model : object
+        The model in consideration.
 
-    `model` : object
-    The model in consideration.
+    dense_npts : int (optional, default: 500)
+        The number of points used in the dense set of absisas.
 
-    `npts` : int (optional, default: 500)
-    The number of points used in the dense set of absisas.
-
-    `path` : string (optional, default: the running folder)
-    The path where to save the files.
+    path : string (optional, default: the running folder)
+        The path where to save the files.
 
     """
-    psi_dense = np.geomspace(psi[0], psi[-1], npts)
+    knots = spline.logpsi[0], spline.logpsi[-1]
+    logpsi_dense = np.log10(
+        np.geomspace(np.power(10, knots[0]), np.power(10, knots[-1]),
+                     dense_npts))
 
-    # Plot density vs potential.
-    plt.plot(psi, rho, 'o', color='pink', label="parametric")
-    plt.plot(psi_dense,
-             interpolate.spline_evaluation(psi_dense, rho_spline, der=0),
+    # Plot log density vs log potential.
+    plt.plot(spline.logpsi,
+             spline.logrho,
+             'o',
+             color='pink',
+             label="parametric")
+    plt.plot(logpsi_dense,
+             spline(logpsi_dense),
              color='red',
              label="interpolation",
              linewidth=2.5)
 
-    plt.xlabel(r"$\Psi$", fontsize=20)
-    plt.ylabel(r"$\rho$", fontsize=20, labelpad=18, rotation=0)
-    plt.yscale('log')
-    plt.xticks(fontsize=20)
-    plt.yticks(fontsize=20)
-    plt.legend(fontsize=20)
+    plt.xlabel(r"$\log\Psi$", fontsize=20)
+    plt.ylabel(r"$\log\rho$", fontsize=20, labelpad=18, rotation=0)
+    plt.xticks(fontsize=18)
+    plt.yticks(fontsize=18)
+    plt.legend(fontsize=18)
 
-    filepath = f"{path}RhoVsPsi{model.name()}.pdf"
+    filepath = f"{path}LogRhoVsLogPsi{model.name()}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print(f"File {filepath} saved.")
 
-    # Plot drho/dpsi vs potential.
-    plt.plot(psi, drho_dpsi, 'o', color='pink', label="parametric")
-    plt.plot(psi_dense,
-             interpolate.spline_evaluation(psi_dense, drho_dpsi_spline, der=0),
+    # Plot dlogrho/dlogpsi vs log potential.
+    plt.plot(spline.logpsi,
+             spline.dlr_dlp,
+             'o',
+             color='pink',
+             label="parametric")
+    plt.plot(logpsi_dense,
+             spline(logpsi_dense, nu=1),
              color='red',
-             label="direct interpolation",
+             label="interpolation",
              linewidth=2.5)
-    plt.plot(psi_dense,
-             interpolate.spline_evaluation(psi_dense, rho_spline, der=1),
-             color='navy',
-             label="deriv interpolation",
-             linewidth=1.2)
 
-    plt.xlabel(r"$\Psi$", fontsize=20)
-    plt.ylabel(r"$\frac{d\rho}{d\Psi}$", fontsize=30, labelpad=24, rotation=0)
-    plt.yscale('log')
-    plt.xticks(fontsize=20)
-    plt.yticks(fontsize=20)
+    plt.xlabel(r"$\log\Psi$", fontsize=20)
+    plt.ylabel(r"$\frac{d\log\rho}{d\log\Psi}$",
+               fontsize=28,
+               labelpad=34,
+               rotation=0)
+    plt.xticks(fontsize=18)
+    plt.yticks(fontsize=18)
     plt.legend(fontsize=18)
 
-    filepath = f"{path}dRhodPsi{model.name()}.pdf"
+    filepath = f"{path}dLogRhodLogPsi{model.name()}.pdf"
     plt.savefig(filepath, bbox_inches='tight')
     plt.clf()
     print(f"File {filepath} saved.")
