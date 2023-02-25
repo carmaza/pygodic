@@ -8,8 +8,6 @@ Defines the function :func:`density_from_potential`.
 import matplotlib.pyplot as plt
 import numpy as np
 
-from pygodic.numalg import interpolate
-
 plt.rcParams["font.family"] = "Latin Modern Roman"
 plt.rcParams["mathtext.fontset"] = "cm"
 
