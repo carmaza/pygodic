@@ -46,7 +46,7 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
 
     """
 
-    def __init__(self, model, r_bounds, pts_rad, k=3):
+    def __init__(self, model, r_bounds, pts_rad):
         self._radial_grid = np.linspace(r_bounds[0], r_bounds[1], pts_rad)
 
         # Radial profiles are decreasing so we flip arrays to interpolate.
