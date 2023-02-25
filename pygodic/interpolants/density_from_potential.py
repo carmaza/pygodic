@@ -11,7 +11,10 @@ import numpy.typing as npt
 from scipy.interpolate import Akima1DInterpolator
 
 
-class LogRhoVsLogPsi(Akima1DInterpolator):
+# Akima1DInterpolator has abstract methods inherited from its parent class
+# which make no sense for it, so opt not to override them. Details at
+# https://github.com/scipy/scipy/blob/v1.10.1/scipy/interpolate/_cubic.py#L367-L465
+class LogRhoVsLogPsi(Akima1DInterpolator):  # pylint: disable=abstract-method
     """
     Interpolant for the log-log mass density vs relative potential relationship.
 
