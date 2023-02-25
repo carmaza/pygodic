@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines class :class:`.LogRhoVsLogPsi`
+Defines class :class:`LogRhoVsLogPsi`
 
 """
 
@@ -42,7 +42,8 @@ class LogRhoVsLogPsi(Akima1DInterpolator):
     - This class inherits from :class:`.scipy.interpolate.Akima1DInterpolator`.
       See `its documentation`_ for a reference on members not documented here.
 
-    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.Akima1DInterpolator.html
+    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/
+       generated/scipy.interpolate.Akima1DInterpolator.html
 
     """
 
