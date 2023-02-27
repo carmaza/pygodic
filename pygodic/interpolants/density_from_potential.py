@@ -1,7 +1,7 @@
 # Distributed under the MIT License.
 # See LICENSE for details.
 """
-Defines class :class:`LogRhoVsLogPsi`.
+Defines class :class:`.LogRhoVsLogPsi`.
 
 """
 
@@ -23,7 +23,7 @@ class LogRhoVsLogPsi(Akima1DInterpolator):  # pylint: disable=abstract-method
 
     model : obj
         The spherical model used to construct the interpolant. Must be a
-        SphericalModel instance.
+        :class:`.SphericallySymmetric` instance.
 
     r_bounds : tuple
         The bounds of the radial grid on which to evaluate the fields.
@@ -38,11 +38,10 @@ class LogRhoVsLogPsi(Akima1DInterpolator):  # pylint: disable=abstract-method
       as we obtain the interpolation points to arbitrary precision from
       analytic profiles.
 
-    - This class inherits from :class:`scipy.interpolate.Akima1DInterpolator`.
-      See `its documentation`_ for a reference on members not documented here.
+    - This class inherits from scipy.interpolate.Akima1DInterpolator_.
 
-    .. _its documentation: https://docs.scipy.org/doc/scipy/reference/
-       generated/scipy.interpolate.Akima1DInterpolator.html
+    .. _scipy.interpolate.Akima1DInterpolator: https://docs.scipy.org/doc/scipy
+       /reference/generated/scipy.interpolate.Akima1DInterpolator.html
 
     """
 
