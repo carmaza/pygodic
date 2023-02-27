@@ -22,7 +22,7 @@ def density_from_potential(spline, model, dense_npts=500, path=""):
 
     spline : obj
         The B-spline representation of the curve. Must be a
-        :class:`.LogRhoVsLogPsi` object.
+        :class:`LogRhoVsLogPsi` object.
 
     model : object
         The model in consideration.
