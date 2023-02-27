@@ -31,10 +31,6 @@ class LogRhoVsLogPsi(Akima1DInterpolator):  # pylint: disable=abstract-method
     pts_rad : int
         The target number of points of the radial grid.
 
-    k : int (optional, default: 3)
-        The degree of the smoothing spline. Must be one of ``[1, 2, 3, 4, 5]``.
-        ``k = 3`` is a cubic spline.
-
     Notes
     -----
 
